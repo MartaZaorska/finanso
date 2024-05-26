@@ -65,13 +65,13 @@ function FormBudgetItem({
             <p>Dodaj nowy {type === "income" ? 'przychód' : 'wydatek'}</p>
           </Form.Header>
         )}
-        <Form.Content submitHandler={submitHandler}>
+        <Form.Content submitHandler={submitHandler} isLoading={isLoadingAddElement || isLoadingUpdateElement}>
           <Form.Input name="value" type="text" icon={<BiDollar />} />
           <Form.Input name="description" type="text" icon={<MdOutlineDescription />} />
           <Form.Input name="date" type="date" />
           <Form.Select name="category" />
           {error && <Form.ErrorMessage>{error}</Form.ErrorMessage>}
-          <Form.Button title={data ? 'Aktualizuj' : 'Utwórz'} isLoading={isLoadingAddElement || isLoadingUpdateElement} />
+          <Form.Button title={data ? 'Aktualizuj' : 'Utwórz'} />
         </Form.Content>
       </Form>
     </div>

@@ -63,7 +63,7 @@ function UserList() {
 
   return (
     <>
-      {isOpen && (
+      {isOpen && isAdmin && (
         <Modal title="Dodaj użytkownika" closeHandler={close}>
           <AddUserToGroup groupId={groupId} closeModal={close} />
         </Modal>
@@ -94,7 +94,7 @@ function UserList() {
             />
           ))}
         </div>
-        <button className="button" onClick={open}><MdAdd className="icon" /> Dodaj użytkownika</button>
+        {isAdmin && <button className="button" onClick={open}><MdAdd className="icon" /> Dodaj użytkownika</button>}
       </section>
     </>
   )

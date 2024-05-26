@@ -1,8 +1,11 @@
 import { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
 
-import styles from './delete.module.css';
 import { useAddElementMutation, useDeleteElementMutation } from '../../app/apiGroup';
+
+import InfinityLoader from '../InfinityLoader';
+
+import styles from './delete.module.css';
 
 function PaymentDeleteConfirmation({ 
   closeModal, 
@@ -57,6 +60,8 @@ function PaymentDeleteConfirmation({
       setIsLoading(false);
     }
   }
+
+  if(isLoading) return <InfinityLoader />
 
   return (
     <div className={styles.container}>

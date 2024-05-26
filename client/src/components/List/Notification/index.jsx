@@ -1,12 +1,13 @@
 import { useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { ThreeDots } from 'react-loader-spinner';
 
 import { IoIosArrowUp } from "react-icons/io";
 
 import useInfinityScroll from '../../../hooks/useInfinityScroll'
 import { formatDate, formatRawDate } from '../../../utils/format';
+
 import NotificationItem from './Item';
+import InfinityLoader from '../../InfinityLoader';
 
 import styles from '../list.module.css';
 
@@ -46,8 +47,8 @@ function NotificationList() {
         </div>
       ))}
       {visible < notifications.length && (
-        <div className={`${styles.spinner} ${styles.spinnerNotifications}`}>
-          <ThreeDots visible={true} height="50" width="50" color="#2f63e4" radius="5" ariaLabel="three-dots-loading" />
+        <div className={styles.spinner}>
+          <InfinityLoader />
         </div>
       )}
       <button className="scrollButton" aria-label="przewiń do góry" ref={buttonRef}><IoIosArrowUp className="icon" /></button>

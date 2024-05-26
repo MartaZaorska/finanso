@@ -6,6 +6,8 @@
 .wrapper {
   display: grid;
   gap: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid hsl(var(--font) / 0.1);
 }
 
 
@@ -140,11 +142,6 @@ p.block :where(span, mark) {
 }
 
 @media screen and (min-width: 1200px){
-  .wrapper {
-    padding-bottom: 2rem;
-    border-bottom: 2px solid hsl(var(--font) / 0.1);
-  }
-
   .box {
     margin-block-end: 0rem;
   }

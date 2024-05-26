@@ -59,13 +59,13 @@ function FormPlanItem({
   return (
     <div className={styles.wrapper}>
       <Form data={formData}>
-        <Form.Content submitHandler={submitHandler}>
+        <Form.Content submitHandler={submitHandler} isLoading={isLoadingAddElement || isLoadingUpdateElement}>
           <Form.Input name="name" type="text" icon={<MdDriveFileRenameOutline />} />
           <Form.Input name="value" type="text" icon={<BiDollar />} />
           <Form.Input name="description" type="text" icon={<MdOutlineDescription />} />
           <Form.Input name="targetDate" type="date" />
           {error && <Form.ErrorMessage>{error}</Form.ErrorMessage>}
-          <Form.Button title={data ? "Aktualizuj" : "Utwórz"} isLoading={isLoadingAddElement || isLoadingUpdateElement} />
+          <Form.Button title={data ? "Aktualizuj" : "Utwórz"} />
         </Form.Content>
       </Form>
     </div>

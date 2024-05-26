@@ -37,13 +37,13 @@ export function Component() {
           <h2>Rejestracja</h2>
           <p>Utwórz nowe konto.</p>
         </Form.Header>
-        <Form.Content submitHandler={registerHandler}>
+        <Form.Content submitHandler={registerHandler} isLoading={isLoading}>
           <Form.Input name="name" type="text" icon={<FaUser />} />
           <Form.Input name="surname" type="text" icon={<FaUser />} />
           <Form.Input name="email" type="text" icon={<FaAt />} />
           <Form.Input name="password" type="password" icon={<IoMdLock />} />
           {error && <Form.ErrorMessage>{error}</Form.ErrorMessage>}
-          <Form.Button title="Zarejestruj się" isLoading={isLoading} />
+          <Form.Button title="Zarejestruj się" />
         </Form.Content>
       </Form>
       <p className={styles.text}>Masz już konto? <Link to="/auth">Przejdź do logowania.</Link></p>

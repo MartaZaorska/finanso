@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { useAddElementMutation, useDeleteElementMutation } from '../../app/apiGroup';
 
+import InfinityLoader from '../InfinityLoader';
+
 import styles from './delete.module.css';
 
 function GoalDeleteConfirmation({ 
@@ -51,6 +53,8 @@ function GoalDeleteConfirmation({
       setIsLoading(false);
     }
   }
+
+  if(isLoading) return <InfinityLoader />
 
   return (
     <div className={styles.container}>

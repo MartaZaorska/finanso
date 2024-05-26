@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   
-  box-shadow: 0px 1rem hsl(var(--navBg));
+  box-shadow: 0px 1rem hsl(var(--navBg)), 0px -2px 10px -5px hsl(var(--black) / 0.1);
 }
 
 .navbar a {
@@ -58,6 +58,8 @@
     gap: 2rem;
     padding: 1.3rem;
     overflow-y: auto;
+
+    box-shadow: none;
   }
 
   .navbar a.desktop {

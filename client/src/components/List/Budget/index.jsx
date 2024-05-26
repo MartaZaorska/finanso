@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { IoFilterOutline, IoCloseOutline } from "react-icons/io5";
 import { IoIosArrowUp } from "react-icons/io";
-import { ThreeDots } from 'react-loader-spinner';
 
 import Modal, { useModal } from '../../../features/modal';
 import useFilters from '../../../hooks/useFilters';
@@ -13,6 +12,7 @@ import { useDeleteElementMutation } from '../../../app/apiGroup';
 import FilterPanel from '../../Forms/FilterPanel';
 import FormBudgetItem from '../../Forms/BudgetItem';
 import BudgetItem from './Item';
+import InfinityLoader from '../../InfinityLoader';
 
 import styles from '../list.module.css';
 
@@ -94,11 +94,7 @@ function BudgetList() {
                 </div>
               ))}
             </div>
-            {total > 15 && visible < total && (
-              <div className={`${styles.spinner}`}>
-                <ThreeDots visible={true} height="50" width="50" color="#2f63e4" radius="5" ariaLabel="three-dots-loading" />
-              </div>
-            )}
+            {total > 15 && visible < total && <InfinityLoader />}
           </>
           ) : (
             <div className={styles.content}>

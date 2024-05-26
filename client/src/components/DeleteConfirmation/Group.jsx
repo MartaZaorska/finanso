@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { useDeleteGroupMutation } from '../../app/apiGroup';
 
+import InfinityLoader from '../InfinityLoader';
+
 import styles from './delete.module.css';
 
 function DeleteGroupConfirmation({ groupId }) {
@@ -25,6 +27,8 @@ function DeleteGroupConfirmation({ groupId }) {
       if(err?.data?.message) setError(err.data.message);
     }
   }
+
+  if(isLoading) return <InfinityLoader />
 
   return (
     <div className={styles.container}>

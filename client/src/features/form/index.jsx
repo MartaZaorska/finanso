@@ -1,7 +1,17 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
+import { ThreeDots } from 'react-loader-spinner';
+
 import { FormContext, useFormValue, useFormContext } from './context';
 
 import styles from './form.module.css';
+
+const Loader = () => {
+  return (
+    <div className={styles.spinner}>
+      <ThreeDots visible={true} height="50" width="50" color="#2f63e4" radius="5" ariaLabel="three-dots-loading" />
+    </div>
+  )
+}
 
 const Form = ({ children, data }) => {
   return (
@@ -11,13 +21,15 @@ const Form = ({ children, data }) => {
   )
 }
 
-Form.Content = memo(function FormContent({ children, submitHandler }){
+Form.Content = memo(function FormContent({ children, submitHandler, isLoading = false }){
   const { values } = useFormContext();
 
   const preSubmitHandler = (e) => {
     e.preventDefault();
     submitHandler(values);
   }
+
+  if(isLoading) return <Loader />
 
   return (
     <form className={styles.form} onSubmit={preSubmitHandler}>
@@ -142,11 +154,11 @@ Form.ErrorMessage = function FormErrorMessage({ children }){
   );
 }
 
-Form.Button = memo(function FormButton({ isLoading = false, title }){
+Form.Button = memo(function FormButton({ title }){
   const { disabled } = useFormContext();
 
   return (
-    <button type="submit" disabled={disabled || isLoading} className={styles.button}>{title}</button>
+    <button type="submit" disabled={disabled} className={styles.button}>{title}</button>
   )
 });
 

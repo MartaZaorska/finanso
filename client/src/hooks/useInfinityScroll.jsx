@@ -18,7 +18,7 @@ const useInfinityScroll = (amount, total, buttonRef = null) => {
         buttonRef.current.classList.toggle("active", window.scrollY >= 500);
     }
 
-    const onScrollHandler = debounce(() => infinityScroll(), 500);
+    const onScrollHandler = debounce(() => infinityScroll(), 200);
 
     window.addEventListener("scroll", onScrollHandler);
 

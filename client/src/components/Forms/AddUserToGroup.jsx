@@ -35,10 +35,10 @@ function AddUserToGroup({ groupId, closeModal }) {
         <Form.Header>
           <p>Podaj adres e-mail osoby, którą chcesz dodać do grupy. Użytkownik musi mieć już założone konto w systemie. Upewnij się, że wpisujesz prawidłowy adres e-mail, który odpowiada istniejącemu profilowi użytkownika.</p>
         </Form.Header>
-        <Form.Content submitHandler={addUserHandler}>
+        <Form.Content submitHandler={addUserHandler} isLoading={isLoading}>
           <Form.Input name="email" type="text" icon={<FaAt />} />
           {error && <Form.ErrorMessage>{error}</Form.ErrorMessage>}
-          <Form.Button title="Dodaj użytkownika" isLoading={isLoading} />
+          <Form.Button title="Dodaj użytkownika" />
         </Form.Content>
       </Form>
     </div>

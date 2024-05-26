@@ -46,13 +46,13 @@ function UpdateProfile({ closeModal, user }){
   return (
     <div className={styles.wrapper}>
       <Form data={formData}>
-        <Form.Content submitHandler={updateHandler}>
+        <Form.Content submitHandler={updateHandler} isLoading={isLoading}>
           <Form.Input name="name" type="text" icon={<FaUser />} />
           <Form.Input name="surname" type="text" icon={<FaUser />} />
           <Form.Input name="email" type="text" icon={<FaAt />} />
           <Form.Input name="password" type="password" icon={<IoMdLock />} />
           {error && <Form.ErrorMessage>{error}</Form.ErrorMessage>}
-          <Form.Button title="Aktualizuj" isLoading={isLoading} />
+          <Form.Button title="Aktualizuj" />
         </Form.Content>
       </Form>
     </div>

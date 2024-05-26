@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useDeleteProfileMutation } from '../../app/apiUser';
 
+import InfinityLoader from '../InfinityLoader';
+
 import styles from './delete.module.css';
 
 function DeleteProfileConfirmation() {
@@ -16,6 +18,8 @@ function DeleteProfileConfirmation() {
       console.log('deleteProfileHandler', err); 
     }
   }
+
+  if(isLoading) return <InfinityLoader />
 
   return (
     <div className={styles.container}>

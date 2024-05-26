@@ -36,11 +36,11 @@ export function Component() {
           <h2>Logowanie</h2>
           <p>Witamy ponownie. Zaloguj się na swoje konto.</p>
         </Form.Header>
-        <Form.Content submitHandler={loginHandler}>
+        <Form.Content submitHandler={loginHandler} isLoading={isLoading}>
           <Form.Input name="email" type="text" icon={<FaAt />} />
           <Form.Input name="password" type="password" icon={<IoMdLock />} />
           {error && <Form.ErrorMessage>{error}</Form.ErrorMessage>}
-          <Form.Button title="Zaloguj się" isLoading={isLoading} />
+          <Form.Button title="Zaloguj się" />
         </Form.Content>
       </Form>
       <p className={styles.text}>Nie masz jeszcze konta? <Link to="register">Zarejestruj się.</Link></p>

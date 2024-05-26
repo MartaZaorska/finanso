@@ -82,7 +82,8 @@
 }
 
 .input :where(input[type="date"], input[type="month"]) {
-  inset: 0;
+  inset: 0 4px 0 0;
+  width: 100%;
 }
 
 .input select {
@@ -154,4 +155,11 @@
   color: hsl(var(--error));
   font-weight: 600;
   transition: all 0.1s;
+}
+
+.spinner {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-block: 2.5rem;
 }

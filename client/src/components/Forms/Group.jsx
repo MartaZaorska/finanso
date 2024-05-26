@@ -54,11 +54,11 @@ function FormGroup({
   return (
     <div className={styles.wrapper}>
       <Form data={formData}>
-        <Form.Content submitHandler={submitHandler}>
+        <Form.Content submitHandler={submitHandler} isLoading={isLoadingCreateGroup || isLoadingUpdateGroup}>
           <Form.Input type="text" name="name" icon={<MdDriveFileRenameOutline />} />
           <Form.Select name="currency" />
           {error && <Form.ErrorMessage>{error}</Form.ErrorMessage>}
-          <Form.Button title={data ? 'Aktualizuj' : 'Utwórz'} isLoading={isLoadingCreateGroup || isLoadingUpdateGroup} />
+          <Form.Button title={data ? 'Aktualizuj' : 'Utwórz'} />
         </Form.Content>
       </Form>
     </div>
