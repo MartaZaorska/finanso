@@ -82,7 +82,7 @@
 }
 
 .input :where(input[type="date"], input[type="month"]) {
-  inset: 0 4px 0 0;
+  inset: 0 10px 0 0;
   width: 100%;
 }
 
