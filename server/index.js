@@ -18,7 +18,7 @@ const app = express();
 
 //middleware
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://finanso.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

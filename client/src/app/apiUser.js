@@ -1,6 +1,6 @@
 import api from './api';
 
-const USER_BASE_URL = 'http://localhost:5000/api/user';
+const USER_BASE_URL = 'https://finanso-backend.vercel.app/api/user';
 
 const apiUser = api.injectEndpoints({
   endpoints: (builder) => ({

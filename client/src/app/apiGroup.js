@@ -1,6 +1,6 @@
 import api from './api';
 
-const GROUP_BASE_URL = 'http://localhost:5000/api/group';
+const GROUP_BASE_URL = 'https://finanso-backend.vercel.app/api/group';
 
 const apiGroup = api.injectEndpoints({
   endpoints: (builder) => ({
