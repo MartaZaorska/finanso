@@ -1,0 +1,74 @@
+.navbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 10;
+  padding: 1rem;
+  background: hsl(var(--navBg));
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  box-shadow: 0px 1rem hsl(var(--navBg));
+}
+
+.navbar a {
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  transform: scale(1);
+
+  transition: all 0.1s;
+}
+
+.navbar a.desktop {
+  display: none;
+}
+
+.navbar a span {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.navbar a .icon {
+  font-size: 1.4rem;
+  pointer-events: none;
+}
+
+.navbar a.disabled {
+  pointer-events: none;
+}
+
+.navbar a:where(.active, :hover) {
+  color: hsl(var(--fontBlue));
+  transform: scale(1.05);
+}
+
+@media screen and (min-width: 450px){
+  .navbar {
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .navbar {
+    flex-direction: column;   
+    inset: 0 auto 0 0;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.3rem;
+    overflow-y: auto;
+  }
+
+  .navbar a.desktop {
+    display: grid;
+  }
+  
+  .navbar a span {
+    display: none;
+  }
+
+  .navbar a .icon {
+    font-size: 1.4rem;
+  }
+}

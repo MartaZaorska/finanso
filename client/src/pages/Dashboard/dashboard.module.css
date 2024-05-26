@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media screen and (min-width: 1200px){
+  .mainRow {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .row {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .row:first-child {
+    align-items: stretch;
+  }
+
+  .column {
+    width: calc(70% - 2rem);
+    display: grid;
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,18 @@
+.container {
+  padding: 1.2rem 1rem;
+  min-height: 100vh;
+}
+
+.container:has(main){
+  padding-block-end: calc(80px + 1.2rem);
+}
+
+@media screen and (min-width: 992px){
+  .container {
+    padding: 2rem;
+  }
+
+  .container:has(main){
+    padding-inline-start: calc(65px + 2rem);
+  }
+}

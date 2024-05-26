@@ -1,0 +1,9 @@
+.wrapper {
+  margin-block-start: 0.5rem;
+}
+
+@media screen and (min-width: 500px){
+  .wrapper {
+    padding-inline: calc((100% - 450px) / 2);
+  }
+}

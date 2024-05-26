@@ -1,0 +1,17 @@
+.text {
+  margin-block-start: 1.5rem;
+  font-size: 1rem;
+  color: hsla(var(--font) / 0.8);
+}
+
+.text a {
+  font-weight: 600;
+  color: hsl(var(--blue));
+}
+
+@media screen and (min-width: 992px){
+  .container {
+    margin-block-start: 2rem;
+    width: 450px;
+  }
+}

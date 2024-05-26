@@ -1,0 +1,21 @@
+.wrapper {
+  margin-block-start: 1.8rem;
+}
+
+@media screen and (min-width: 650px){
+  .wrapper {
+    padding: 1rem 4rem;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .wrapper {
+    padding-inline: 5rem;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .wrapper {
+    padding-inline: 7rem;
+  }
+}

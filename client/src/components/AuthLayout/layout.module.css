@@ -1,0 +1,45 @@
+.container {
+  margin-block-start: 1rem;
+  min-height: 87vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 1rem;
+  text-align: center;
+  color: hsla(var(--font) / 0.8);
+}
+
+.draw {
+  display: none;
+}
+
+.wrapper {
+  margin-block: 4rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+@media screen and (min-width: 992px){
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    max-width: 100%;
+    gap: 5rem;
+    margin-block: 2rem;
+  }
+
+  .draw {
+    display: grid;
+    place-items: center;
+    margin-block-start: 2.5rem;
+    max-height: 70vh;
+  }
+
+  .draw img {
+    max-height: 70vh;
+  }
+}

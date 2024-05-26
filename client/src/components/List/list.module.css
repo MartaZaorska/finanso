@@ -1,0 +1,268 @@
+.container {
+  margin-block: 1rem;
+  width: 100%;
+}
+
+.budgetContainer {
+  margin-block: 0rem;
+}
+
+.container > header {
+  margin-block-end: 0.8rem;
+}
+
+.container > header h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-block-end: 1.2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.item {
+  position: relative;
+  background: hsl(var(--navBg));
+  padding: 1rem;
+  border-radius: 0.5rem;
+  line-height: 1.5;
+  outline: 1px solid hsl(var(--font) / 0.2);
+  cursor: pointer;
+
+  transition: all 0.15s;
+}
+
+.item:has(.controls) {
+  cursor: auto;
+}
+
+.item:where(.auto, .category) {
+  pointer-events: none;
+}
+
+.item:hover {
+  box-shadow: 0px 2px 5px -1px rgba(150, 150, 150, 0.2), 0px -2px 5px -1px rgba(150, 150, 150, 0.2);
+}
+
+.item:has(.controls):hover {
+  box-shadow: none;
+}
+
+.success {
+  outline: 3px solid hsl(var(--green));
+}
+
+.danger {
+  outline: 3px solid hsl(var(--error));
+}
+
+.normal {
+  outline: 3px solid hsl(var(--buttonBg) / 0.7);
+}
+
+.income {
+  outline: 3px solid hsl(var(--green) / 0.7);
+}
+
+.expenses {
+  outline: 3px solid hsl(var(--error) / 0.7);
+}
+
+:where(.success, .danger, .normal, .income, .expenses)::before {
+  content: attr(data-value);
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  padding: 0.2rem 0.4rem;
+  font-weight: 500;
+  border-bottom-left-radius: 0.3rem;
+  border-top-right-radius: 0.5rem;
+  color: hsl(var(--white));
+}
+
+.success::before {
+  background: hsl(var(--green));
+}
+
+.danger::before {
+  background: hsl(var(--error));
+}
+
+.normal::before {
+  background: hsl(var(--buttonBg) / 0.7);
+  color: hsl(var(--font));
+}
+
+.income::before {
+  background: hsl(var(--green) / 0.8);;
+}
+
+.expenses::before {
+  background: hsl(var(--error) / 0.8);
+}
+
+.header h3 {
+  font-size: 1.1rem;
+  color: hsl(var(--fontBlue));
+  margin-block-end: 0.2rem;
+}
+
+.header span {
+  display: inline-block;
+  font-weight: 500;
+}
+
+.balance {
+  font-size: 1.1rem;
+  text-align: right;  
+}
+
+.controls {
+  margin-block-start: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.controls:empty {
+  margin-block-start: 0;
+}
+
+.message {
+  padding-block: 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.goal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-block: 2.2rem 1rem;
+}
+
+.progress {
+  display: grid;
+  place-items: center;
+  margin-block-start: 1.2rem;
+}
+
+.details mark {
+  font-weight: 600;
+}
+
+.details span {
+  font-weight: 300;
+}
+
+.details > p {
+  margin-block: 0.1rem;
+}
+
+.box {
+  display: flex;
+  margin-block: 1.2rem;
+}
+
+.box p {
+  width: 50%;
+  padding: 0.3rem;
+  display: grid;
+  text-align: center;
+}
+
+.box p:first-child {
+  border-right: 1px solid hsl(var(--font) / 0.3);
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-block-end: 2rem;
+}
+
+.spinner {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+@media screen and (min-width: 450px){
+  .item:not(.goal) {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .item:not(.goal):has(.controls) {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 850px){
+  .content:has(.goal){
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .goal {
+    width: calc((100% / 2) - 1.5rem);
+    padding: 2rem 1.5rem;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .container {
+    margin-block: 2rem;
+  }
+
+  .budgetContainer {
+    margin-block: 0rem;
+  }
+  
+  .container > header {
+    margin-block-end: 1.5rem;
+  }
+
+  .content {
+    margin-block-end: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .content {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .notifications {
+    gap: 1rem;
+  }
+
+  .item {
+    width: calc((100% / 2) - 0.75rem);
+    min-width: 450px;
+  }
+
+  .category {
+    min-width: 100%;
+  }
+
+  .item.auto, .spinnerNotifications {
+    width: 60%;
+  }
+
+  .goal {
+    min-width: auto;
+    padding-block-start: 2.5rem;
+    width: calc((100% / 3) - 2rem);
+  }
+}

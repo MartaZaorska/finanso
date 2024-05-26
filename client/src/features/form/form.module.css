@@ -1,0 +1,157 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.header {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.header :where(h1, h2, h3, h4, h5, h6){
+  font-weight: 300;
+}
+
+.header :where(span, mark) {
+  background: transparent;
+  font-weight: 600;
+}
+
+.header p {
+  font-weight: 500;
+  color: hsl(var(--fontBlue));
+}
+
+.header h1 { font-size: 2.4rem; }
+.header h2 { font-size: 2.2rem; }
+.header h3 { font-size: 2rem; }
+.header h4 { font-size: 1.8rem; }
+.header h5 { font-size: 1.6rem; }
+.header h6 { font-size: 1.4rem; }
+
+
+.control {
+  width: 100%;
+  max-width: 450px;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.control.range {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.control.range .input {
+  width: calc(50% - 0.5rem);
+}
+
+.control.range .message {
+  width: 100%;
+}
+
+.input {
+  padding: 1.3rem;
+  border-radius: 1rem;
+  border: 2px solid hsla(var(--inputBg) / 0.1);
+  background: hsla(var(--inputBg) / 0.05);
+  color: hsla(var(--inputColor) / 0.5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.input label {
+  position: absolute;
+  padding-inline: 0.15rem;
+  left: 0.8rem;
+  transition: all 0.2s;
+}
+
+.input :where(input, select) {
+  position: absolute;
+  inset: 0 37px 0 0;
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.input :where(input[type="date"], input[type="month"]) {
+  inset: 0;
+}
+
+.input select {
+  inset: 0 13px 0 0;
+  padding-block: 0.5rem;
+}
+
+.input input::placeholder {
+  color: transparent;
+}
+
+.input:focus-within, .input:has(:not(:placeholder-shown):valid) {
+  border-color: hsl(var(--blue));
+  background: hsl(var(--bg));
+  color: hsl(var(--font));
+}
+
+.input.error {
+  border-color: hsl(var(--error)) !important;
+}
+
+.input:focus-within {
+  box-shadow: 0px 15px 7px -12px hsla(var(--darkBlue) / 0.25);
+}
+
+.input:focus-within .icon, .input:has(:not(:placeholder-shown):valid) .icon {
+  color: hsl(var(--blue));
+}
+
+.input:focus-within label, .input:has(:not(:placeholder-shown):valid) label {
+  background: hsl(var(--bg));
+  transform: translate(8px, -23px);
+  font-weight: 600;
+}
+
+.icon {
+  position: absolute;
+  inset: 0 0.8rem 0 auto;
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+}
+
+.button {
+  background: linear-gradient(45deg, hsl(var(--darkBlue)), hsl(var(--blue)));
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  font-weight: 500;
+  color: hsla(var(--white) / 0.9);
+  transition: all 0.2s;
+  width: 100%;
+  max-width: 450px;
+}
+
+.button:disabled {  
+  opacity: 0.75;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.button:hover {
+  color: hsl(var(--white));
+  box-shadow: 0px 15px 7px -12px hsla(var(--darkBlue) / 0.25);
+}
+
+.message {
+  font-size: 0.9rem;
+  color: hsl(var(--error));
+  font-weight: 600;
+  transition: all 0.1s;
+}

@@ -1,0 +1,27 @@
+.switch input {
+  appearance: none;
+  display: none;
+}
+
+.label {
+  display: block;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: hsla(var(--inputBg) / 0.2);
+}
+
+.moon {
+  color: hsl(var(--darkBlue));
+  pointer-events: none;
+}
+
+.sun {
+  color: hsl(var(--lightBlue));
+  pointer-events: none;
+}

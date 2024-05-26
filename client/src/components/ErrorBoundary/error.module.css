@@ -1,0 +1,29 @@
+.container {
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.container header {
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.container h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: hsl(var(--fontBlue));
+  border-bottom: 1px solid hsl(var(--inputBg));
+  padding-block-end: 1rem;
+}
+
+.container p {
+  padding-block: 1rem;
+}
+
+.link {
+  display: inline-block !important;
+}

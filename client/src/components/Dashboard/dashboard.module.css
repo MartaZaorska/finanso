@@ -1,0 +1,192 @@
+.container {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.wrapper {
+  display: grid;
+  gap: 1rem;
+}
+
+
+.list { 
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.topHeader h2 {
+  font-weight: 300;
+}
+
+.box {
+  background: hsl(var(--navBg));
+  border-radius: 0.5rem;
+  margin-block-end: 2rem;
+}
+
+.wrapper .box {
+  margin-block-end: 0rem;
+}
+
+.active {
+  outline: 3px solid hsl(var(--fontBlue));
+}
+
+.header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.groupHeader {
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.header h3 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: hsl(var(--inputBg));
+}
+
+.link {
+  font-size: 1rem;
+  color: hsl(var(--fontBlue) / 0.8);
+  font-weight: 600;
+  transition: all 0.1s;
+}
+
+.link:hover {
+  color: hsl(var(--fontBlue) / 1);
+}
+
+.item {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 0.5rem;
+  border-top: 3px solid hsl(var(--bg));
+}
+
+.notificationItem {
+  padding: 1.2rem 1rem;
+}
+
+
+.balance {
+  padding: 0 1rem 1rem;
+}
+
+.content mark {
+  font-weight: 600;
+}
+
+.content mark.blue {
+  color: hsl(var(--fontBlue));
+}
+
+.content mark:where(.income, .green) {
+  color: hsl(var(--green));
+}
+
+.content mark:where(.expenses, .error) {
+  color: hsl(var(--error));
+}
+
+.content p {
+  line-height: 1.5;
+}
+
+p.block :where(span, mark) {
+  display: block;
+}
+
+.message {
+  padding: 0rem 1rem 1rem;
+}
+
+.wrapper .box {
+  cursor: pointer;
+}
+
+.box.analysis {
+  background: transparent;
+}
+
+
+@media screen and (min-width: 600px){
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .list .box {
+    width: calc(50% - 0.5rem);
+  }
+}
+
+@media screen and (min-width: 768px){
+  .list .box {
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .wrapper {
+    padding-bottom: 2rem;
+    border-bottom: 2px solid hsl(var(--font) / 0.1);
+  }
+
+  .box {
+    margin-block-end: 0rem;
+  }
+
+  .mainRow {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .row {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .row:first-child {
+    align-items: stretch;
+  }
+
+  .column {
+    width: calc(70% - 2rem);
+    display: grid;
+    gap: 2rem;
+  }
+
+  .notification.box {
+    width: 30%;
+  }
+
+  .box.transaction {
+    width: 45%;
+  }
+
+  .box.analysis {
+    width: calc(55% - 2rem);
+  }
+
+  .analysis.box {
+    width: 60%;
+  }
+
+  .box:where(.goal, .payment) {
+    width: calc(50% - 1rem);
+  }
+}

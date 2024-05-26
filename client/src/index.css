@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  --white: 0 0% 100%;
+  --black: 0 0% 0%;
+  --blue: 223 77% 54%;
+  --lightBlue: 223 77% 83%;
+  --darkBlue: 223 62% 20%;
+  --dark: 224 100% 7%;
+  --error: 344 63% 45%;
+  --green: 120 52% 55%;
+
+  --bg: var(--white);
+  --font: var(--black);
+  --fontBlue: var(--blue);
+  --inputBg: var(--darkBlue);
+  --inputColor: var(--darkBlue);
+  --iconColor: var(--darkBlue);
+  --buttonBg: var(--lightBlue);
+  --navBg: 240 100% 98%;
+}
+
+:root:has(.dark-theme:checked) {
+  --bg: var(--dark);
+  --font: var(--white);
+  --fontBlue: var(--lightBlue);
+  --inputBg: var(--lightBlue);
+  --inputColor: var(--white);
+  --iconColor: var(--lightBlue);
+  --buttonBg: var(--darkBlue);
+  --navBg: 222 100% 10%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 15px 15px rgba(110, 110, 110, 0.4);
+  border: solid 5px transparent;
+  border-radius: 1.3em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px 15px transparent;
+  border: solid 5px transparent;
+}
+
+input,
+select,
+input::placeholder,
+button,
+a {
+  background: transparent;
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+select > option {
+  color: hsl(var(--black)) !important;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: auto;
+}
+
+input:active,
+input:focus,
+select:active,
+select:focus,
+button:active,
+button:focus,
+a:active,
+a:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-display: fallback;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
+  position: relative;
+  background: hsl(var(--bg));
+  color: hsl(var(--font));
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+mark {
+  background: transparent;
+  font-weight: 600;
+  color: hsl(var(--font));
+}
+
+
+.button {
+  flex-basis: auto;
+  background: hsl(var(--inputColor));
+  color: hsl(var(--bg) / 0.8);
+  font-size: 0.85rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 500;
+  transition: all 0.1s;
+}
+
+@media screen and (min-width: 992px){
+  .button {
+    font-size: 0.9rem;
+  }
+}
+
+.button:hover {
+  color: hsl(var(--bg));
+}
+
+.button.danger {
+  background: hsl(var(--error));
+  color: hsl(var(--white) / 0.8);
+}
+
+.button.secondary {
+  background: hsl(var(--buttonBg));
+  color: hsl(var(--font) / 0.8);
+}
+
+.button.danger:hover {
+  color: hsl(var(--white));
+}
+
+.button.secondary:hover {
+  color: hsl(var(--font));
+}
+
+.icon {
+  pointer-events: none;
+}
+
+.button .icon {
+  font-size: 1.2rem;
+}
+
+.scrollButton {
+  z-index: 20;
+  position: fixed;
+  bottom: 6rem;
+  right: 1rem;
+  width: 45px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  background: hsla(var(--blue) / 0.8);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  color: hsl(var(--white));
+  transform: translateX(200%);
+  transition: all 0.2s;
+}
+
+.scrollButton:hover {
+  background: hsla(var(--blue) / 1);
+}
+
+.scrollButton.active {
+  transform: translateX(0);
+}
+
+
+@media screen and (min-width: 992px){
+  .scrollButton {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}

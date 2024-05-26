@@ -1,0 +1,66 @@
+.progress {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.svg {
+  transform: rotate(-90deg);
+  width: 80px;
+  height: 80px;
+}
+
+.background {
+  fill: none;
+  stroke: hsl(var(--bg) / 0.8);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.4s ease-in-out;
+}
+
+.number {
+  position: absolute;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+/*
+.wrapper {
+  width: 160px;
+  padding: 20px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow: 4px 4px 6px -1px hsl(var(--font) / 0.15), -4px -4px 6px -1px hsl(var(--navBg) / 0.7);
+}
+
+.content {
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 4px 4px 6px -1px hsl(var(--font) / 0.2), inset -4px -4px 6px -1px hsl(var(--navBg) / 0.7),
+              -0.5px -0.5px 0px hsl(var(--navBg)), 0.5px 0.5px 0px hsl(var(--font) / 0.15), 0 12px 10px -10px hsl(var(--font) / 0.05);
+}
+
+.text {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.circle {
+  fill: none;
+  stroke: cornflowerblue;
+  stroke-width: 20px;
+}
+*/
