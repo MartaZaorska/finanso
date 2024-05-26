@@ -9,6 +9,7 @@ import { useChangeUserRoleMutation, useRemoveUserMutation } from '../../../app/a
 
 import AddUserToGroup from '../../Forms/AddUserToGroup';
 import UserItem from './Item';
+import InfinityLoader from '../../InfinityLoader';
 
 import styles from '../list.module.css';
 
@@ -21,8 +22,8 @@ function UserList() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const [changeRole] = useChangeUserRoleMutation();
-  const [removeUser] = useRemoveUserMutation();
+  const [changeRole, { isLoading: isChangeRoleLoading }] = useChangeUserRoleMutation();
+  const [removeUser, { isLoading: isRemoveUserLoading }] = useRemoveUserMutation();
 
   const { isOpen, open, close } = useModal();
 
@@ -60,6 +61,8 @@ function UserList() {
       console.log('removeUserHandler', err);
     }
   }, [groupId, removeUser, dispatch, navigate]);
+
+  if(isChangeRoleLoading || isRemoveUserLoading) return <InfinityLoader />
 
   return (
     <>
