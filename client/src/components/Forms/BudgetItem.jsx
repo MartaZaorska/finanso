@@ -48,11 +48,17 @@ function FormBudgetItem({
         ? (await updateElement({ data: values, groupId, type: data.type }).unwrap()) 
         : (await addElement({ data: values, groupId, type }).unwrap());
 
-      const { updateGroup } = await import("../../app/appSlice");
-      dispatch(updateGroup(res));
+      const { updateGroupItem, addGroupItem } = await import("../../app/appSlice");
+      
+      if(data){
+        dispatch(updateGroupItem({ groupId, type: data.type, data: res }));
+      }else{
+        dispatch(addGroupItem({ groupId, type, data: res }));
+      }
+
       closeModal();
     }catch(err){
-      console.log('FormBudgetItem', err);
+      //console.log('FormBudgetItem', err);
       if(err?.data?.message) setError(err.data.message);
     }
   }, [data, type, groupId, closeModal, dispatch, addElement, updateElement]);

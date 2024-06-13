@@ -34,6 +34,24 @@ export const transformNotification = async (notificationId) => {
   };
 }
 
+export const transformNotifications = async (notificationsIds) => {
+  const data = [];
+  for(const id of notificationsIds){
+    data.push(await transformNotification(id));
+  }
+  
+  return data;
+}
+
+export const transformUsers = async (usersIds) => {
+  const data = [];
+  for(const id of usersIds){
+    data.push(await transformUser(id));
+  }
+
+  return data;
+}
+
 export const transformData = async (dataIds, transformFunction) => {
   const data = [];
   for(const dataId of dataIds){ data.push(await transformFunction(dataId)); }

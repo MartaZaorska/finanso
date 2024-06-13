@@ -23,7 +23,7 @@ function DeleteGroupConfirmation({ groupId }) {
       dispatch(deleteGroupInState(groupId));
       navigate("/user");
     }catch(err){
-      console.log('deleteGroupHandler', err); 
+      //console.log('deleteGroupHandler', err); 
       if(err?.data?.message) setError(err.data.message);
     }
   }

@@ -40,9 +40,9 @@ function UserList() {
     try {
       const res = await changeRole({ groupId, role, userId }).unwrap();
       const { updateGroup } = await import("../../../app/appSlice");
-      dispatch(updateGroup(res));
+      dispatch(updateGroup({ _id: groupId, ...res }));
     }catch(err){
-      console.log('changeRoleHandler', err);
+      //console.log('changeRoleHandler', err);
     }
   }, [changeRole, groupId, dispatch]);
 
@@ -55,10 +55,10 @@ function UserList() {
         dispatch(deleteGroup(groupId));
         navigate("/user");
       }else{
-        dispatch(updateGroup(res));
+        dispatch(updateGroup({ _id: groupId, ...res }));
       }
     }catch(err){
-      console.log('removeUserHandler', err);
+      //console.log('removeUserHandler', err);
     }
   }, [groupId, removeUser, dispatch, navigate]);
 

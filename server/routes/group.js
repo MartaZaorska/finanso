@@ -11,7 +11,8 @@ import {
   deleteGroupItem,
   addUser, 
   changeUserRole,
-  removeUser
+  removeUser,
+  getNotifications
 } from '../controllers/group.js';
 
 const router = Router();
@@ -27,6 +28,8 @@ router.route("/:id/user")
   .post(addUser)
   .put(changeUserRole)
   .delete(removeUser);
+
+router.get("/:id/notifications", getNotifications);
 
 router.route("/:id/income")
   .post(createTransaction("income"))

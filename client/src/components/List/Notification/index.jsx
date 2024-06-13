@@ -1,27 +1,40 @@
-import { useMemo, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useMemo, useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { IoIosArrowUp } from "react-icons/io";
+
+import { useGetNotificationsQuery } from '../../../app/apiGroup';
+import { setNotifications } from '../../../app/appSlice';
 
 import useInfinityScroll from '../../../hooks/useInfinityScroll'
 import { formatDate, formatRawDate } from '../../../utils/format';
 
 import NotificationItem from './Item';
 import InfinityLoader from '../../InfinityLoader';
+import Loader from '../../Loader';
 
 import styles from '../list.module.css';
 
 function NotificationList() {
-  const { activeGroup: { notifications } } = useSelector(state => state.app);
+  const { activeGroup: { _id, notifications } } = useSelector(state => state.app);
+  const dispatch = useDispatch();
   const buttonRef = useRef();
 
   const visible = useInfinityScroll(15, notifications.length, buttonRef);
+
+  const { data, isLoading, refetch } = useGetNotificationsQuery(_id);
+
+  useEffect(() => {
+    if(data) dispatch(setNotifications({ groupId: _id, data: data.notifications }));
+  }, [data, dispatch]);
+
+  useEffect(() => { refetch() }, [refetch]);
 
   const groupedNotificationsByDate = useMemo(() => {
     const now = new Date();
     const today = formatRawDate();
     const yesterday = formatRawDate(new Date().setDate(now.getDate() - 1));
-
+    
     return Object.groupBy(notifications.slice(0, visible), (item) => {
       const date = item.createdAt.slice(0, 10);
       if(today === date){ 
@@ -32,6 +45,8 @@ function NotificationList() {
     });
   }, [notifications, visible]);
 
+
+  if(isLoading) return <Loader />
 
   return (
     <section>

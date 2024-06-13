@@ -42,11 +42,17 @@ function FormGroup({
         ? (await updateGroup(values).unwrap()) 
         : (await createGroup(values).unwrap());
 
-      const { updateGroup: updateGroupInState } = await import("../../app/appSlice");
-      dispatch(updateGroupInState(res));
+      const { updateGroup: updateGroupInState, addGroup } = await import("../../app/appSlice");
+
+      if(data){
+        dispatch(updateGroupInState(res));
+      }else{
+        dispatch(addGroup(res));
+      }
+      
       closeModal();
     }catch(err){
-      console.log('FormGroup', err);
+      //console.log('FormGroup', err);
       if(err?.data?.message) setError(err.data.message);
     }
   }, [data, updateGroup, createGroup, dispatch, closeModal]);

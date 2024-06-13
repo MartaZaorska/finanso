@@ -27,12 +27,12 @@ function GoalDeleteConfirmation({
     
     try { 
       const res = await addElement({ data: body, groupId, type: 'expenses' }).unwrap();
-      const { updateGroup } = await import("../../app/appSlice");
-      dispatch(updateGroup(res));
+      const { addGroupItem } = await import("../../app/appSlice");
+      dispatch(addGroupItem({ groupId, type: 'expenses', data: res }));
       await deleteGoal();
     }catch(err){
       setIsLoading(false);
-      console.log("addExpenseAndDeleteGoal", err);
+      //console.log("addExpenseAndDeleteGoal", err);
       if(err?.data?.message) setError(err.data.message);
     }
   }
@@ -42,12 +42,12 @@ function GoalDeleteConfirmation({
     setIsLoading(true);
 
     try {
-      const res = await deleteElement({ groupId, id: data._id, type: 'goals' }).unwrap();
-      const { updateGroup } = await import("../../app/appSlice");
-      dispatch(updateGroup(res));
+      await deleteElement({ groupId, id: data._id, type: 'goals' }).unwrap();
+      const { deleteGroupItem } = await import("../../app/appSlice");
+      dispatch(deleteGroupItem({ groupId, itemId: data._id, type: 'goals' }));
       closeModal();
     }catch(err){
-      console.log("deleteGoal", err);
+      //console.log("deleteGoal", err);
       if(err?.data?.message) setError(err.data.message);
     }finally{
       setIsLoading(false);

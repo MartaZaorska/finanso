@@ -20,7 +20,7 @@ function Header() {
       const { logout } = await import("../../app/appSlice.js");
       dispatch(logout());
     } catch(err) {
-      console.log(`logoutHandler`, err);
+      //console.log(`logoutHandler`, err);
     }
   }
 

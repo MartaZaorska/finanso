@@ -21,10 +21,10 @@ function AddUserToGroup({ groupId, closeModal }) {
     try {
       const res = await addUser({ email: data.email, groupId }).unwrap();
       const { updateGroup } = await import("../../app/appSlice");
-      dispatch(updateGroup(res));
+      dispatch(updateGroup({ _id: groupId, ...res }));
       closeModal();
     }catch(err){
-      console.log('addUserHandler', err);
+      //console.log('addUserHandler', err);
       if(err?.data?.message) setError(err.data.message);
     }
   }, [groupId, dispatch, addUser, closeModal]);

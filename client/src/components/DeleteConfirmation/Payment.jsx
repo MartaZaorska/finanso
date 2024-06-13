@@ -28,8 +28,8 @@ function PaymentDeleteConfirmation({
 
     try { 
       const res = await addElement({ data: body, groupId, type: 'expenses' }).unwrap();
-      const { updateGroup } = await import("../../app/appSlice");
-      dispatch(updateGroup(res));
+      const { addGroupItem } = await import("../../app/appSlice");
+      dispatch(addGroupItem({ groupId, data: res, type: 'expenses' }));
 
       if(deleteFlag){
         await deletePayment();
@@ -39,7 +39,7 @@ function PaymentDeleteConfirmation({
       }
     }catch(err){
       setIsLoading(false);
-      console.log("addExpenseAndDeletePayment", err);
+      //console.log("addExpenseAndDeletePayment", err);
       if(err?.data?.message) setError(err.data.message);
     }
   }
@@ -49,12 +49,12 @@ function PaymentDeleteConfirmation({
     setIsLoading(true);
 
     try {  
-      const res = await deleteElement({ groupId, id: data._id, type: 'payments' }).unwrap();
-      const { updateGroup } = await import("../../app/appSlice");
-      dispatch(updateGroup(res));
+      await deleteElement({ groupId, id: data._id, type: 'payments' }).unwrap();
+      const { deleteGroupItem } = await import("../../app/appSlice");
+      dispatch(deleteGroupItem({ groupId, type: 'payments', itemId: data._id }));
       closeModal();
     } catch(err) {
-      console.log("deletePayment", err);
+      //console.log("deletePayment", err);
       if(err?.data?.message) setError(err.data.message);
     } finally {
       setIsLoading(false);

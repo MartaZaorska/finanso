@@ -33,6 +33,12 @@ const apiGroup = api.injectEndpoints({
         credentials: 'include'
       })
     }),
+    getNotifications: builder.query({
+      query: (groupId) => ({
+        url: `${GROUP_BASE_URL}/${groupId}/notifications`,
+        credentials: 'include'
+      })
+    }),
     addUser: builder.mutation({
       query: ({ groupId, email }) => ({
         url: `${GROUP_BASE_URL}/${groupId}/user`,
@@ -89,12 +95,13 @@ export const {
   useUpdateGroupMutation,
   useDeleteGroupMutation,
   useGetGroupQuery,
+  useGetNotificationsQuery,
   useAddUserMutation,
   useChangeUserRoleMutation,
   useRemoveUserMutation,
   useAddElementMutation,
   useUpdateElementMutation,
-  useDeleteElementMutation
+  useDeleteElementMutation,
 } = apiGroup;
 
 export default apiGroup;

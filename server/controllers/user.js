@@ -46,6 +46,7 @@ export const register = asyncHandler(async (req, res) => {
   await (await user.save()).populate("groups");
 
   generateToken(res, { userId: user._id });
+
   res.status(201).json({ 
     ...user._doc, 
     password: null, 
@@ -70,6 +71,7 @@ export const login = asyncHandler(async (req, res) => {
   }
 
   generateToken(res, { userId: user._id });
+
   res.status(200).json({ 
     ...user._doc, 
     password: null,
@@ -101,6 +103,7 @@ export const getProfile = asyncHandler(async (req, res) => {
     groups: await transformGroups(user.groups) 
   });
 });
+
 
 export const updateProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
@@ -146,7 +149,6 @@ export const deleteProfile = asyncHandler(async (req, res) => {
     res.status(401);
     throw new Error("Użytkownik nie istnieje");
   }
-
 
   user.password = null;
   user.email = null;

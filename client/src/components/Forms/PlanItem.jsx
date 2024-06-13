@@ -47,11 +47,17 @@ function FormPlanItem({
         ? (await updateElement({ data: values, groupId, type }).unwrap()) 
         : (await addElement({ data: values, groupId, type }).unwrap());
   
-      const { updateGroup } = await import("../../app/appSlice");
-      dispatch(updateGroup(res));
+      const { updateGroupItem, addGroupItem } = await import("../../app/appSlice");
+
+      if(data){
+        dispatch(updateGroupItem({ groupId, type: type, data: res }));
+      }else{
+        dispatch(addGroupItem({ groupId, type, data: res }));
+      }
+      
       closeModal();
     }catch(err){
-      console.log('FormPlanItem', err);
+      //console.log('FormPlanItem', err);
       if(err?.data?.message) setError(err.data.message);
     }
   }, [data, groupId, type, updateElement, addElement, dispatch, closeModal]);

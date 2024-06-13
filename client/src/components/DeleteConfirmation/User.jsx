@@ -15,7 +15,7 @@ function DeleteProfileConfirmation() {
       const { logout } = await import("../../app/appSlice");
       dispatch(logout());
     }catch(err){
-      console.log('deleteProfileHandler', err); 
+      //console.log('deleteProfileHandler', err); 
     }
   }
 

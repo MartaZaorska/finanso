@@ -24,7 +24,7 @@ export function Component() {
       const { setData } = await import("../../app/appSlice.js");
       dispatch(setData(res));
     }catch(err){
-      console.error('loginHandler', err);
+      //console.error('loginHandler', err);
       if(err?.data?.message) setError(err.data.message);
     }
   }, [login, dispatch]);

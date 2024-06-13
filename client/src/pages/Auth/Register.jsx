@@ -25,7 +25,7 @@ export function Component() {
       const { setData } = await import("../../app/appSlice.js");
       dispatch(setData(res));
     }catch(err){
-      console.error('registerHandler', err);
+      //console.error('registerHandler', err);
       if(err?.data?.message) setError(err.data.message);
     }
   }, [register, dispatch]);

@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: flex-start;
+  gap: 0.1rem;
 }
 
 .wrapper {
@@ -17,6 +18,7 @@
 .header h2 {
   font-size: 1.5rem;
   font-weight: 300;
+  margin-inline-end: 0.3rem;
 }
 
 .header span {

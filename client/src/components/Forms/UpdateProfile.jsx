@@ -38,7 +38,7 @@ function UpdateProfile({ closeModal, user }){
       dispatch(setData(res));
       closeModal();
     }catch(err){
-      console.log('updateHandler', err);
+      //console.log('updateHandler', err);
       if(err?.data?.message) setError(err.data.message);
     }
   }, [updateProfile, dispatch, closeModal]);

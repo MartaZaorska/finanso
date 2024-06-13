@@ -45,11 +45,11 @@ function BudgetList() {
 
   const deleteHandler = useCallback(async (data) => {
     try {
-      const res = await deleteElement({ type: data.type, groupId, id: data._id }).unwrap();
-      const { updateGroup } = await import("../../../app/appSlice");
-      dispatch(updateGroup(res));
+      await deleteElement({ type: data.type, groupId, id: data._id }).unwrap();
+      const { deleteGroupItem } = await import("../../../app/appSlice");
+      dispatch(deleteGroupItem({ groupId, type: data.type, itemId: data._id }));
     }catch(err){
-      console.error('deleteBudgetItem', err);
+      //console.error('deleteBudgetItem', err);
     }
   }, [groupId, dispatch, deleteElement]);
 
