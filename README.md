@@ -6,7 +6,6 @@ Application for managing personal finances or a multi-personal household.
 
 ![](./screenshots/auth.png)
 ![](./screenshots/pulpit-desktop.png)
-![](./screenshots/pulpit-mobile.jpg)
 
 
 ### Demo
